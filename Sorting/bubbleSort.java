@@ -9,13 +9,16 @@ public class bubbleSort {
         int n = test.length;
 
         for(int i = n-1; i>=0; i--){
+            boolean didSwap = false;
             for(int j = 0; j<i; j++){
                 if(test[j]>test[j+1]){
                     int temp = test[j];
                     test[j] = test[j+1];
                     test[j+1] = temp;
+                    didSwap = true;
                 }
             }
+            if(!didSwap)break;
         }
         System.out.println("Unsorted array: " + Arrays.toString(unsorted));
 
