@@ -23,21 +23,21 @@ public class unionOfSets {
         while(i < l1){
             if(!union.contains(nums1[i])){
                 union.add(nums1[i]);
-                i++;
             }
+            i++;
         }
 
         while(j < l2){
             if(!union.contains(nums2[j])){
                 union.add(nums2[j]);
-                j++;
             }
+            j++;
         }
         return union;
     }
 
     public static void main(String[] args) {
-        int[] nums1 = {1,2,3,4,5};
+        int[] nums1 = {1,1,2,2,3,4,5};
         int[] nums2 = {3,4,6,7,8};
         int l1 = nums1.length;
         int l2 = nums2.length;
