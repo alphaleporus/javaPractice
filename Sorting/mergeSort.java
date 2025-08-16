@@ -1,10 +1,11 @@
 package Sorting;
 
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class mergeSort {
-    static void merge(int[]nums, int low , int high, int mid) {
+    static void merge(int[] nums, int low, int high, int mid) {
         ArrayList<Integer> temp = new ArrayList<>();
         int left = low;
         int right = mid + 1;
@@ -33,20 +34,35 @@ public class mergeSort {
         }
     }
 
-
-    static void mergeSort(int[] nums, int low, int high){
-        if(low>=high)return;
-        int mid = (high + low) /2;
+    static void mergeSort(int[] nums, int low, int high) {
+        if (low >= high) return;
+        int mid = (high + low) / 2;
         mergeSort(nums, low, mid);
-        mergeSort(nums, mid+1, high);
+        mergeSort(nums, mid + 1, high);
         merge(nums, low, high, mid);
-
     }
+
     public static void main(String[] args) {
-        int[]nums = {5,4,3,2,1};
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the number of elements in the array:");
+        int n = scanner.nextInt();
+
+        int[] nums = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            nums[i] = scanner.nextInt();
+        }
+
         int low = 0;
-        int high = nums.length-1;
+        int high = nums.length - 1;
+
+        System.out.println("Original array: " + Arrays.toString(nums));
+
         mergeSort(nums, low, high);
-        System.out.println("Sorted: " + Arrays.toString(nums));
+
+        System.out.println("Sorted array: " + Arrays.toString(nums));
+
+        scanner.close();
     }
 }
