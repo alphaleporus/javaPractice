@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class printLeaders {
     public static void findLeaders(int[]nums, ArrayList<Integer>Leaders){
-        int max = 0;
+        int max = Integer.MIN_VALUE;
         for(int i = nums.length-1; i>=0; i--){
             max = Math.max(nums[i], max);
             if(nums[i]==max){
