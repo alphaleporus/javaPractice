@@ -9,6 +9,7 @@ public class palindrome {
         String reversed = "";
         boolean isPalindrome = false;
         for(int i = name.length()-1; i >=0 ; i--){
+            System.out.println(i);
             reversed += name.charAt(i);
         }
         if(original.equalsIgnoreCase(reversed)){
