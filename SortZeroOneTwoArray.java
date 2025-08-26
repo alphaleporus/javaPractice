@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class SortZeroOneTwoArray {
     public static void Sorter(int[]arr, int n){
-//        FAILED ATTEMPT;
+//        FAILED ATTEMPT 1:
 //        int i = 1;
 //        int low = arr[i-1];
 //        int mid = arr[i];
@@ -47,6 +47,7 @@ public class SortZeroOneTwoArray {
         int[] arr={2,1,1,2,2,2,0,0,0,2,1};
         int n = arr.length;
         Sorter(arr, n);
+        System.out.println("Program Executed")
     }
 }
 
