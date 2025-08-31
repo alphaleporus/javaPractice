@@ -47,7 +47,7 @@ public class SortZeroOneTwoArray {
         int[] arr={2,1,1,2,2,2,0,0,0,2,1};
         int n = arr.length;
         Sorter(arr, n);
-        System.out.println("Program Executed")
+        System.out.println("Program Executed");
     }
 }
 
