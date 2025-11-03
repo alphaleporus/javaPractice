@@ -11,14 +11,14 @@ public class matrixMultiplication {
         System.out.print("Enter the number of columns for the first matrix(A): ");
         int n = scanner.nextInt();
 
-        System.out.print("Enter the number of rows for the second matrix(A): ");
+        System.out.print("Enter the number of rows for the second matrix(B): ");
         int p = scanner.nextInt();
-        System.out.print("Enter the number of rows for the second matrix(A): ");
+        System.out.print("Enter the number of Columns for the second matrix(B): ");
         int q = scanner.nextInt();
         System.out.println();
 
         //check
-        if(n!=q){
+        if(n!=p){
             System.out.println("The number of columns in A are not equal to rows of B! Matrix Multiplication not possible...");
             return;
         }
@@ -44,7 +44,7 @@ public class matrixMultiplication {
         System.out.println();
 
 
-        for(int i = 0; i<p; i++){
+        for(int i = 0; i<m; i++){
             for(int j = 0; j<q; j++){
                 C[i][j]=0;
                 for(int k =0; k<p; k++){
@@ -62,5 +62,4 @@ public class matrixMultiplication {
         }
 
     }
-
 }
