@@ -1,0 +1,25 @@
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class leetcode3 {
+    public static int lengthOfLongestSubstring(String s) {
+        int maxlen = 0;
+        int left = 0;
+        Set<Character> temp = new HashSet();
+        for (int right = 0; right < s.length(); right++) {
+            while(temp.contains(s.charAt(right))){
+                temp.remove(s.charAt(left));
+                left++;
+            }
+            temp.add(s.charAt(right));
+            maxlen = Math.max(maxlen,temp.size());
+        }
+        return maxlen;
+    }
+
+    public static void main(String[] args) {
+        String s = "pwwkew";
+        System.out.println(lengthOfLongestSubstring(s));
+    }
+}
