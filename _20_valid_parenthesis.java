@@ -1,0 +1,24 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class _20_valid_parenthesis {
+    public boolean isValid(String s) {
+        Deque<Character> stack = new ArrayDeque<>();
+        if(s.length()% 2 != 0){
+            return false;
+        }
+        if(s.isEmpty())return false;
+        for(char c : s.toCharArray()){
+            if(c == '(' || c == '{' || c == '['){
+                stack.push(c);
+            }else if (stack.isEmpty() || c=='}' && stack.peek()!='{'){return false;}
+            else if(stack.isEmpty() || c==']' && stack.peek()!='['){return false;}
+            else if(stack.isEmpty() || c==')' && stack.peek()!='(')return false;
+            else stack.pop();
+        }
+        if(!stack.isEmpty()){
+            return false;
+        }
+        return true;
+    }
+}
