@@ -1,0 +1,23 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class _739_daily_temp {
+    public int[] dailyTemperatures(int[] temperatures) {
+        Deque<int[]> stack = new ArrayDeque<>();
+        int[] answer = new int[temperatures.length];
+        for(int i =0; i<temperatures.length; i++){
+            int temperature = temperatures[i];
+            int[]node = new int[]{temperature, i};
+            
+            if(stack.isEmpty()){
+                stack.push(node);
+            }
+            while(!stack.isEmpty() && temperature > stack.peek()[0]){
+                answer[stack.peek()[1]] = i-stack.peek()[1];
+                stack.pop();
+            }
+            stack.push(node);
+        }
+        return answer;
+    }
+}
