@@ -1,27 +1,38 @@
-import java.util.Arrays;
-import java.util.HashMap;
-
 public class _76_minimum_window_substr {
+    private Boolean isValid(int[]tFreqMap, int[]sFreqMap){
+        for(int i=0 ; i<128 ; i++){
+            if(sFreqMap[i]<tFreqMap[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public String minWindow(String s, String t) {
         int[] tFreqMap = new int[128];
         int[] sFreqMap = new int[128];
         for(int i =0; i<t.length() ; i++){
             tFreqMap[t.charAt(i)]++;
-            sFreqMap[s.charAt(i)]++;
         }
         String solution="";
+        int minSolLength = Integer.MAX_VALUE;
         int left = 0;
-        int right = t.length()-1;
+        int right = 0;
+        
         while(right<s.length()){
-            if(Arrays.equals(tFreqMap, sFreqMap)&&solution.length() > s.substring(left, right+1).length()){
-                solution = s.substring(left, right+1);
+            sFreqMap[s.charAt(right)]++;
+
+            while(isValid(tFreqMap, sFreqMap)){
+                if(s.substring(left, right+1).length()<minSolLength){
+                    solution = s.substring(left, right+1);
+                    minSolLength = solution.length();
+                }
                 sFreqMap[s.charAt(left)]--;
                 left++;
-                continue;
             }
-            else if(right<s.length()-1){
+
+            if(right<s.length()-1){
                 right++;
-                sFreqMap[s.charAt(right)]++;
             }else break;
         }
         return solution;
