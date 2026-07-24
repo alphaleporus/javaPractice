@@ -1,19 +1,19 @@
 public class _42_trap_rain_water {
     public int trap(int[] height) {
-        int maxL = 0;
-        int maxR = 0;
+        int maxLeft = 0;
+        int maxRight = 0;
         int left = 0;
         int right = height.length-1;
         int water = 0;
         while(left<right){
             if(height[left]<height[right]){
-                maxL = Math.max(maxL , height[left]);
-                water += maxL - height[left];
+                maxLeft = Math.max(maxLeft , height[left]);
+                water += maxLeft - height[left];
                 left++;
             }
             else{
-                maxR = Math.max(maxR , height[right]);
-                water += maxR - height[right];
+                maxRight = Math.max(maxRight , height[right]);
+                water += maxRight - height[right];
                 right--;
             }
         }
